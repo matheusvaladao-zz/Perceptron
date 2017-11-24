@@ -31,6 +31,9 @@ public class Perceptron {
     //taxa de aprendizado
     private double taxaAprendizado = 0.2;
 
+    // entrada bias
+    public double bias = -1;
+
     /**
      * Retorna contador de épocas.
      *
@@ -78,7 +81,7 @@ public class Perceptron {
      */
     public int executar(int x, int y) {
 
-        soma = (x * pesos[0]) + (y * pesos[1]) + ((-1) * pesos[2]);
+        soma = (x * pesos[0]) + (y * pesos[1]) + (bias * pesos[2]);
 
         // Função de Ativação
         if (soma > 0) {
@@ -121,9 +124,9 @@ public class Perceptron {
      * @param saida
      */
     void corrigirPeso(int i, int saida) {
-        pesos[0] = pesos[0] + (1 * (matrizAprendizado[i][2] - saida) * matrizAprendizado[i][0] * taxaAprendizado);
-        pesos[1] = pesos[1] + (1 * (matrizAprendizado[i][2] - saida) * matrizAprendizado[i][1] * taxaAprendizado);
-        pesos[2] = pesos[2] + (1 * (matrizAprendizado[i][2] - saida) * taxaAprendizado);
+        pesos[0] = pesos[0] + ((matrizAprendizado[i][2] - saida) * matrizAprendizado[i][0] * taxaAprendizado);
+        pesos[1] = pesos[1] + ((matrizAprendizado[i][2] - saida) * matrizAprendizado[i][1] * taxaAprendizado);
+        pesos[2] = pesos[2] + ((matrizAprendizado[i][2] - saida) * bias * taxaAprendizado);
     }
 
 }
