@@ -28,6 +28,9 @@ public class Perceptron {
     // Vetor da matriz de aprendizado.
     private int[][] matrizAprendizado = new int[4][3];
 
+    //taxa de aprendizado
+    private double taxaAprendizado = 0.2;
+
     /**
      * Retorna contador de épocas.
      *
@@ -118,9 +121,9 @@ public class Perceptron {
      * @param saida
      */
     void corrigirPeso(int i, int saida) {
-        pesos[0] = pesos[0] + (1 * (matrizAprendizado[i][2] - saida) * matrizAprendizado[i][0]);
-        pesos[1] = pesos[1] + (1 * (matrizAprendizado[i][2] - saida) * matrizAprendizado[i][1]);
-        pesos[2] = pesos[2] + (1 * (matrizAprendizado[i][2] - saida) * (-1));
+        pesos[0] = pesos[0] + (1 * (matrizAprendizado[i][2] - saida) * matrizAprendizado[i][0] * taxaAprendizado);
+        pesos[1] = pesos[1] + (1 * (matrizAprendizado[i][2] - saida) * matrizAprendizado[i][1] * taxaAprendizado);
+        pesos[2] = pesos[2] + (1 * (matrizAprendizado[i][2] - saida) * taxaAprendizado);
     }
 
 }

@@ -27,7 +27,6 @@ public class Executar {
         System.out.println("0 AND 0 = " + perceptron.executar(0, 0));
         System.out.println("0 AND 1 = " + perceptron.executar(0, 1));
         System.out.println("1 AND 0 = " + perceptron.executar(1, 0));
-        System.out.println("0 AND 0 = " + perceptron.executar(0, 0));
         System.out.println("1 AND 1 = " + perceptron.executar(1, 1));
 
     }
